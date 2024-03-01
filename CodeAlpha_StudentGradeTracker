@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class GradeCalc {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the no.of.students: ");
+        int numStuds = scanner.nextInt();
+        int[] grds = new int[numStuds];
+
+        for (int i = 0; i < numStuds; i++) {
+            System.out.print("Enter grade for student " + (i + 1) + ": ");
+            grds[i] = scanner.nextInt();
+        }
+        int sum = 0;
+        int h = grds[0];
+        int l = grds[0];
+        for (int grade : grds) {
+            sum += grade;
+            if (grade > h) {
+                h = grade;
+            }
+            if (grade < l) {
+                l = grade;
+            }
+        }
+        double avg = (double) sum / numStuds;
+        System.out.println("\nResults:");
+        System.out.println("Average Score: " + avg);
+        System.out.println("Highest Score: " + h);
+        System.out.println("Lowest Score: " + l);
+        scanner.close();
+    }
+}
